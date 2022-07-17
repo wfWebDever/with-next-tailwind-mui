@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+@font-face {
+  font-family: "EduSABeginner";
+  src: url("../assets/fonts/EduSABeginner-Bold.ttf") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+}
+@font-face {
+  font-family: "EduSABeginner";
+  src: url("../assets/fonts/EduSABeginner-SemiBold.ttf") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "EduSABeginner";
+  src: url("../assets/fonts/EduSABeginner-VariableFont_wght.ttf") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "EduSABeginner";
+  src: url("../assets/fonts/EduSABeginner-Regular.ttf") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+
+
+
