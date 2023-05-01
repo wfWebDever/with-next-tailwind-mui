@@ -4,8 +4,33 @@ import Stack from '@mui/material/Stack'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
 import styles from '../styles/Home.module.css'
+import { Box } from '@mui/material'
+import { useEffect, useState } from 'react'
+import Ske from '../components/ske'
+import { onLCP, onFID, onCLS } from 'web-vitals'
 
-export default function Home() {
+const img =
+  'https://cdn.pixabay.com/photo/2022/06/25/23/41/ladybug-7284337_1280.jpg'
+
+export default function Home({ data }) {
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    if (data) {
+      setLoading(false)
+    }
+  }, [data])
+  console.info(data)
+
+  useEffect(() => {
+    onCLS(console.log)
+    onFID(console.log)
+    onLCP(console.log)
+  }, [])
+
+  if (loading) {
+    return <Ske></Ske>
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -30,6 +55,16 @@ export default function Home() {
         consectetur, neque doloribus, cupiditate numquam dignissimos laborum
         fugiat deleniti? Eum quasi quidem quibusdam.
       </Typography>
+      <Box className="w-[200px] h-[200px] relative">
+        <Image
+          src={img}
+          alt="img"
+          width={150}
+          height={150}
+          // layout="fill"
+          objectFit="fill"
+        ></Image>
+      </Box>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
@@ -38,7 +73,7 @@ export default function Home() {
 
         <p className={styles.description}>
           Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          <code className={styles.code}>pages/index.jsx</code>
         </p>
 
         <div className={styles.grid}>
@@ -86,4 +121,13 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const data = { a: 1 }
+  return {
+    props: {
+      data
+    } // will be passed to the page component as props
+  }
 }

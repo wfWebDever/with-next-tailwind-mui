@@ -2,6 +2,11 @@
   "name": "app-nextjs-taiwindcss-mui",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.14.2",
+    "npm": "8.5.0",
+    "yarn": "1.22.19"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -11,15 +16,27 @@
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
+    "@googlemaps/js-api-loader": "^1.15.1",
+    "@googlemaps/react-wrapper": "^1.1.35",
     "@mui/material": "^5.8.7",
+    "@react-google-maps/api": "^2.12.2",
     "next": "12.2.2",
+    "nprogress": "^0.2.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-player": "^2.10.1",
+    "swiper": "^8.3.1",
+    "web-vitals": "^3.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
-    "eslint": "8.19.0",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "12.2.2",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.2",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "sass": "^1.53.0",

@@ -19,6 +19,8 @@ module.exports = {
       edusa: ['EduSABeginner', ...defaultTheme.fontFamily.sans]
     },
     colors: {
+      white: '#fff',
+      black: '#000',
       gray: '#f3f4f6',
       red: '#ef4444',
       primary: '#fff',
