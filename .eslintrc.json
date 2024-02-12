@@ -5,19 +5,31 @@
     "node": true
   },
   "extends": ["next", "prettier"],
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": 2,
+    
+    "import/no-unresolved": [2, { "ignore": ["^swiper"] }],
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+    "linebreak-style": ["error", "unix"],
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function" }
+    ],
+    "import/extensions": [
+      2,
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [2, { "devDependencies": true }],
+    "global-require": 0,
     "no-console": [
       1,
       {
-        "allow": [
-          "info",
-          "warn",
-          "error"
-        ]
+        "allow": ["info", "warn", "error"]
       }
     ],
     "no-nested-ternary": 2,
@@ -57,4 +69,3 @@
     ]
   }
 }
-
