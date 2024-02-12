@@ -9,6 +9,9 @@ const nextConfig = {
   },
   images: {
     domains: ['cdn.pixabay.com']
+  },
+  env: {
+    GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY
   }
 }
 
