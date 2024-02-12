@@ -11,6 +11,7 @@ export default function SetTime() {
       {hours} hours:
       {minutes} minutes:
       {seconds} seconds
+      <Box>Total:</Box>
       <Typography>{totalSeconds}</Typography>
     </Box>
   )
