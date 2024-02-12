@@ -5,19 +5,13 @@
     "node": true
   },
   "extends": ["next", "prettier"],
-  "plugins": [
-    "prettier"
-  ],
+  "plugins": ["prettier"],
   "rules": {
     "prettier/prettier": 2,
     "no-console": [
       1,
       {
-        "allow": [
-          "info",
-          "warn",
-          "error"
-        ]
+        "allow": ["info", "warn", "error"]
       }
     ],
     "no-nested-ternary": 2,
@@ -57,4 +51,3 @@
     ]
   }
 }
-
