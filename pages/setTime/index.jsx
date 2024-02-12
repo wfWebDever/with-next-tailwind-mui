@@ -1,7 +1,7 @@
 import { Box, Typography } from '@mui/material'
 import useTime from './useTime'
 
-export default function SetTime() {
+const SetTime = () => {
   // use hook
   const { totalSeconds, days, hours, minutes, seconds } = useTime(10000)
 
@@ -16,3 +16,5 @@ export default function SetTime() {
     </Box>
   )
 }
+
+export default SetTime

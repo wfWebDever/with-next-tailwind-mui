@@ -1,0 +1,7 @@
+/node_modules/
+/src/App.test.tsx
+/public
+/dist
+/build
+.next
+.github
