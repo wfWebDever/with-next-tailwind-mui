@@ -5,7 +5,7 @@
   "engines": {
     "node": "16.14.2",
     "npm": "8.5.0",
-    "yarn": "1.22.19"
+    "yarn": "1.22.18"
   },
   "scripts": {
     "dev": "next dev",
@@ -20,6 +20,8 @@
     "@googlemaps/react-wrapper": "^1.1.35",
     "@mui/material": "^5.8.7",
     "@react-google-maps/api": "^2.12.2",
+    "@vis.gl/react-google-maps": "^0.6.1",
+    "lodash": "^4.17.21",
     "next": "12.2.2",
     "nprogress": "^0.2.0",
     "react": "18.2.0",

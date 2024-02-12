@@ -4,8 +4,22 @@ import Marker from './marker'
 import Info from './info'
 
 const center = { lat: 34.0211769, lng: -118.3012355 }
+const data = [{ lat: 34.0211769, lng: -118.3012355 }]
+const mapConf = {
+  apiKey: process.env.GOOGLE_MAP_API_KEY,
+  version: 'weekly',
+  libraries: []
+}
+const mapOptions = {
+  center: center,
+  zoom: 8,
+  language: 'en-us',
+  gestureHandling: 'greedy'
+  // center: { lat: -34.397, lng: 150.644 },
+  // zoom: 8
+}
 
-function GoogleMap({ data }) {
+function GoogleMap() {
   const [loadError, setLoadError] = useState(false)
   const [map, setMap] = useState(null)
   const [googleMaps, setGoogleMaps] = useState(null)
@@ -18,21 +32,12 @@ function GoogleMap({ data }) {
   }
 
   useEffect(() => {
-    const loader = new Loader({
-      googleMapsApiKey: '',
-      libraries: []
-      // version: 'weekly'
-    })
-
+    const loader = new Loader(mapConf)
     loader
       .load()
-      .then(() => {
-        const map = new window.google.maps.Map(document.getElementById('map'), {
-          center: center,
-          zoom: 14,
-          language: 'en-us',
-          gestureHandling: 'greedy'
-        })
+      .then(async () => {
+        const { Map } = await google.maps.importLibrary('maps')
+        const map = new Map(document.getElementById('map'), mapOptions)
         setMap(map)
         setGoogleMaps(window.google.maps)
       })
@@ -78,7 +83,7 @@ function GoogleMap({ data }) {
   }
 
   return (
-    <div id="map" className="w-full h-full">
+    <div id="map" className="w-full h-[500px]">
       {markers.map((marker) => (
         <Marker
           key={'marker-' + marker?.id}

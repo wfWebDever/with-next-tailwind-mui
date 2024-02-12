@@ -1,66 +1,49 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import {
-  GoogleMap,
-  useLoadScript,
-  InfoBox,
-  OverlayView
-} from '@react-google-maps/api'
+  APIProvider,
+  Map,
+  Marker,
+  useMapsLibrary
+} from '@vis.gl/react-google-maps'
+import { Box } from '@mui/material'
 
-const containerStyle = {
-  width: '1000px',
-  height: '800px'
-}
+const apiKey = process.env.GOOGLE_MAP_API_KEY
+// const mapOptions = {
+//   center: center,
+//   zoom: 8,
+//   language: 'en-us',
+//   gestureHandling: 'greedy'
+//   // center: { lat: -34.397, lng: 150.644 },
+//   // zoom: 8
+// }
 
-const center = {
-  lat: -3.745,
-  lng: -38.523
-}
-
-const divStyle = {
-  background: 'white',
-  border: '1px solid #ccc',
-  padding: 15
-}
+const center = { lat: 34.0211769, lng: -118.3012355 }
 
 function MyComponent() {
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: '',
-    libraries: []
-    // ...otherOptions
-  })
-  const onLoad = React.useCallback((mapInstance) => {
-    // do something with map Instance
-    console.info(mapInstance)
-  })
-  const onClick = () => {
-    console.info('I have been clicked!')
-  }
+  const placesLib = useMapsLibrary('places')
+  const [placesService, setPlacesService] = useState(null)
 
-  if (loadError) {
-    return <div>Map cannot be loaded right now, sorry.</div>
-  }
+  useEffect(() => {
+    if (!placesLib) return
 
-  return isLoaded ? (
-    <GoogleMap
-      mapContainerStyle={containerStyle}
-      center={center}
-      zoom={14}
-      onLoad={onLoad}
-    >
-      <OverlayView
-        position={center}
-        mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-      >
-        <div style={divStyle}>
-          <h1>OverlayView</h1>
+    setPlacesService(new placesLib.PlacesService())
+  }, [placesLib])
 
-          <button onClick={onClick} type="button">
-            Click me
-          </button>
-        </div>
-      </OverlayView>
-    </GoogleMap>
-  ) : null
+  useEffect(() => {
+    if (!placesService) return
+
+    // ...use placesService...
+  }, [placesService])
+
+  return (
+    <Box className="w-full h-screen">
+      <APIProvider apiKey={apiKey}>
+        <Map center={center} zoom={10}>
+          <Marker position={center} />
+        </Map>
+      </APIProvider>
+    </Box>
+  )
 }
 
-export default React.memo(MyComponent)
+export default MyComponent
